@@ -1,0 +1,14 @@
+.jumbotron{
+    background-color: red;
+    height: 250px;
+}
+
+img {
+    max-width: 50%;
+    max-height: 70%;
+}
+
+.active-pink-2 input.form-control[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+  }
