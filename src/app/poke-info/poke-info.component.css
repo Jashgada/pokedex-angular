@@ -1,0 +1,12 @@
+input.form-control[type=text]:not([readonly]) {
+    border-color: white;
+    border-bottom: 1px solid black;
+    box-shadow: 0 1px 0 0 black;
+    border-radius: 0;
+  }
+
+  input.form-control[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid red;
+    box-shadow: 0 1px 0 0 red;
+    
+  }
