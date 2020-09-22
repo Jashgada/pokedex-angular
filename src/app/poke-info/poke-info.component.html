@@ -4,10 +4,12 @@
     <form class="form-inline d-flex md-form form-sm mt-0">
       <i class="fas fa-search" aria-hidden="true"></i>
       <input class="form-control form-control-sm" type="text" placeholder="Search Pokemon"
-        aria-label="Search">
+        aria-label="Search" [(ngModel)] = "listFilter" name="filter" >
+        
     </form>
-    <div class="row" >
-      <div class="col-md-3" *ngFor ='let pokeName of pokeList'>
+    
+    <div class="row" *ngIf = 'filteredPokeList && filteredPokeList.length'>
+      <div class="col-md-3" *ngFor ='let pokeName of filteredPokeList'>
         <div class="card">
           <div class="card header">
             {{pokeName}}

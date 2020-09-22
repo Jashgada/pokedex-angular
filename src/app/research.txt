@@ -1,3 +1,5 @@
 https://pokeapi.co/api/v2/pokemon/1/
 https://pokeapi.co/docs/v2#pokemon-section
 https://github.com/nolanlawson/pokedex.org#readme
+
+ajax - rxjs for api call and observables
