@@ -9,15 +9,12 @@
     </form>
     
     <div class="row" *ngIf = 'filteredPokeList && filteredPokeList.length'>
-      <div class="col-md-3" *ngFor ='let pokeName of filteredPokeList'>
+      <div class="col-md-3" *ngFor ='let Pokemon of filteredPokeList'>
         <div class="card">
-          <div class="card header">
-            {{pokeName}}
-          </div>
+          <img class="card-img-top img-fluid" src={{Pokemon.sprite}}>
           <div class="card body">
-            something something
-            something something
-            something
+            <p class="card-text">Bulk stuff just for testing</p>
+            <a href="#" class="btn stretched-link">{{Pokemon.name}}</a>
           </div>
         </div>
        </div>

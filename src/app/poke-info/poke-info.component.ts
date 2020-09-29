@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of, from } from 'rxjs';
+import { pokeInfoService } from './poke-info.service';
+import { IPokemon } from './pokemon';
 
 @Component({
   selector: 'app-poke-info',
@@ -7,27 +9,13 @@ import { Observable, of, from } from 'rxjs';
   styleUrls: ['./poke-info.component.css']
 })
 export class PokeInfoComponent implements OnInit {
-  pokeList: any[] = ['Bulbasaur',
-                    'Ivysaur',
-                   'Venosaur',
-                   'Charmander',
-                   'Charizard',
-                   'Pikachu',
-                   'Mew',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo',
-                   'Mewtwo'];
-    filteredPokeList: any[] = [];
+  pokeList: IPokemon[] = [];
+
+    filteredPokeList: IPokemon[] = [];
 
     _listFilter : string = "";
 
+    errorMessage: string;
     get listFilter(): string{
 
       return this._listFilter;
@@ -41,13 +29,20 @@ export class PokeInfoComponent implements OnInit {
     performFilter(filterBy: string): any[]
     {
       filterBy = filterBy.toLocaleLowerCase();
-      return this.pokeList.filter((product:string)=>
-        product.toLocaleLowerCase().indexOf(filterBy)!==-1);
+      return this.pokeList.filter((poke:IPokemon)=>
+        poke.name.toLocaleLowerCase().indexOf(filterBy)!==-1);
     }
-  constructor() { }
+  constructor(private pokeService: pokeInfoService) { }
 
   ngOnInit(): void {
-    this.filteredPokeList =this.pokeList;
+    from(this.pokeService.getPokemon()).subscribe({
+      next:poke =>{
+        this.pokeList = poke;
+        this.filteredPokeList = this.pokeList;
+      },
+      error: err => this.errorMessage = err
+    });
+    console.log(this.pokeList);
     console.log(this.filteredPokeList[1]);
   }
 
