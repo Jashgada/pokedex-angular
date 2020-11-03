@@ -4,7 +4,7 @@ import { pokeInfoService } from './poke-info.service';
 import { IPokemon } from './pokemon';
 
 @Component({
-  selector: 'app-poke-info',
+  //selector: 'app-poke-info',
   templateUrl: './poke-info.component.html',
   styleUrls: ['./poke-info.component.css']
 })
@@ -13,7 +13,7 @@ export class PokeInfoComponent implements OnInit {
 
     filteredPokeList: IPokemon[] = [];
 
-    _listFilter : string = "";
+    _listFilter= "";
 
     errorMessage: string;
     get listFilter(): string{
@@ -21,9 +21,9 @@ export class PokeInfoComponent implements OnInit {
       return this._listFilter;
     }
 
-    set listFilter(value:string){
+    set listFilter(value: string){
       this._listFilter = value;
-      this.filteredPokeList = this.listFilter?this.performFilter(this.listFilter) : this.pokeList;
+      this.filteredPokeList = this.listFilter? this.performFilter(this.listFilter) : this.pokeList;
     }
 
     performFilter(filterBy: string): any[]

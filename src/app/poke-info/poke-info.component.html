@@ -14,7 +14,7 @@
           <img class="card-img-top img-fluid" src={{Pokemon.sprite}}>
           <div class="card body">
             <p class="card-text">Bulk stuff just for testing</p>
-            <a href="#" class="btn stretched-link">{{Pokemon.name}}</a>
+            <a [routerLink]="['/PokeDetail', Pokemon.id]" class="btn stretched-link">{{Pokemon.name}}</a>
           </div>
         </div>
        </div>
